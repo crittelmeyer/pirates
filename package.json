@@ -5,6 +5,7 @@
   "dependencies": {
     "eslint": "^4.11.0",
     "eslint-config-prettier": "^2.8.0",
+    "material-ui": "^0.19.4",
     "prettier": "^1.8.2",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",

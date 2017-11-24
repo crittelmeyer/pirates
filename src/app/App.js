@@ -13,9 +13,7 @@ const tiles = [
 const propTypes = {}
 const defaultProps = {}
 
-const App = () => (
-  <Scene tiles={tiles} />
-)
+const App = () => <Scene tiles={tiles} />
 
 App.propTypes = propTypes
 App.defaultProps = defaultProps
