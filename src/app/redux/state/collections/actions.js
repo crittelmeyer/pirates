@@ -1,1 +1,1 @@
-export * from './scenes/actions'
+export * from './maps/actions'

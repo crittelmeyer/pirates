@@ -5,11 +5,9 @@ import enhance from './enhance'
 const propTypes = {
   id: PropTypes.string.isRequired,
 
-  player: PropTypes.object,
+  map: PropTypes.object,
 
   playerPosition: PropTypes.object,
-
-  tiles: PropTypes.array,
 
   onSceneRef: PropTypes.func
 }
@@ -28,20 +26,21 @@ const styles = {
   }
 }
 
-const PlainScene = ({ id, player, playerPosition, tiles, onSceneRef }) => (
+const PlainScene = ({ id, player, playerPosition, map, onSceneRef }) => (
   <div ref={onSceneRef} style={styles.container}>
-    {tiles.map((tileRow, rowIndex) => (
-      <div key={`${id}_row_${rowIndex}`} style={styles.row}>
-        {tileRow.map((tile, colIndex) => (
-          <div key={`${id}_cell_${rowIndex}_${colIndex}`}>
-            {playerPosition.row === rowIndex &&
-            playerPosition.column === colIndex
-              ? player.sprite
-              : tile.sprite}
-          </div>
-        ))}
-      </div>
-    ))}
+    {map &&
+      map.tiles.map((tileRow, rowIndex) => (
+        <div key={`${id}_row_${rowIndex}`} style={styles.row}>
+          {tileRow.map((tile, colIndex) => (
+            <div key={`${id}_cell_${rowIndex}_${colIndex}`}>
+              {playerPosition.row === rowIndex &&
+              playerPosition.column === colIndex
+                ? player.sprite
+                : tile.sprite}
+            </div>
+          ))}
+        </div>
+      ))}
   </div>
 )
 

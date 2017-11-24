@@ -1,7 +1,7 @@
 import { UPDATE_PLAYER_POSITION } from './actions/updatePlayerPosition'
 import updatePlayerPositionReducer from './reducers/updatePlayerPositionReducer'
 
-const defaultState = { appConfigLoaded: false }
+const defaultState = { position: { column: 2, row: 2 } }
 
 export default (state = defaultState, action) => {
   switch (action.type) {

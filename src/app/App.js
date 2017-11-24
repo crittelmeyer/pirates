@@ -1,73 +1,24 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { Provider } from 'react-redux'
 
 import enhance from './enhance'
-import store from './redux/store'
+import store from 'app/redux/store'
 
-import Scene from './components/Scene'
+import AdminToolbar from 'app/components/AdminToolbar'
+import Game from 'app/components/Game'
 
-const tiles = [
-  [
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' }
-  ],
-  [
-    { sprite: '#' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '#' }
-  ],
-  [
-    { sprite: '#' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '#' }
-  ],
-  [
-    { sprite: '#' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '.' },
-    { sprite: '#' }
-  ],
-  [
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' },
-    { sprite: '#' }
-  ]
-]
-
-const player = {
-  sprite: '@'
-}
-
-const propTypes = { playerPosition: PropTypes.object }
+const propTypes = {}
 const defaultProps = {}
 
-const PlainApp = ({ playerPosition }) => (
+const PlainApp = () => (
   <Provider store={store}>
     <MuiThemeProvider muiTheme={getMuiTheme()}>
-      <Scene id="main" player={player} tiles={tiles} />
+      <div>
+        <AdminToolbar />
+        <Game id="main" />
+      </div>
     </MuiThemeProvider>
   </Provider>
 )

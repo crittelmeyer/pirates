@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
-import scenes from './scenes/reducers'
+import maps from './maps/reducers'
 
 export const reducers = combineReducers({
-  scenes
+  maps
 })
-export * from './scenes/reducers'
+export * from './maps/reducers'

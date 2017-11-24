@@ -1,1 +1,1 @@
-export * from './scenes/selectors'
+export * from './maps/selectors'
