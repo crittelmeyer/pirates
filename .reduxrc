@@ -1,7 +1,9 @@
 {
-  "sourceBase":"",
-  "testBase":"",
-  "smartPath":"",
-  "dumbPath":"",
-  "fileCasing":""
+  "sourceBase": "src/app",
+  "testBase": "test",
+  "smartPath": "containers",
+  "dumbPath": "components",
+  "fileCasing": "default",
+
+  "statePath": "redux/state"
 }

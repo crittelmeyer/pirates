@@ -5,22 +5,40 @@ import enhance from './enhance'
 const propTypes = {
   id: PropTypes.string.isRequired,
 
-  tiles: PropTypes.array
+  player: PropTypes.object,
+
+  playerPosition: PropTypes.object,
+
+  tiles: PropTypes.array,
+
+  onSceneRef: PropTypes.func
 }
 const defaultProps = {}
 
 const styles = {
   container: {
-    display: 'flex'
+    display: 'flex',
+    flexDirection: 'column',
+    fontSize: 30
+  },
+
+  row: {
+    display: 'flex',
+    flexDirection: 'row'
   }
 }
 
-const PlainScene = ({ id, tiles }) => (
-  <div style={styles.container}>
+const PlainScene = ({ id, player, playerPosition, tiles, onSceneRef }) => (
+  <div ref={onSceneRef} style={styles.container}>
     {tiles.map((tileRow, rowIndex) => (
-      <div key={`${id}_row_${rowIndex}`}>
+      <div key={`${id}_row_${rowIndex}`} style={styles.row}>
         {tileRow.map((tile, colIndex) => (
-          <div key={`${id}_cell_${rowIndex}_${colIndex}`}>{tile}</div>
+          <div key={`${id}_cell_${rowIndex}_${colIndex}`}>
+            {playerPosition.row === rowIndex &&
+            playerPosition.column === colIndex
+              ? player.sprite
+              : tile.sprite}
+          </div>
         ))}
       </div>
     ))}
