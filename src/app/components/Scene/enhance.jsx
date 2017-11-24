@@ -1,4 +1,8 @@
-import { compose, lifecycle, withHandlers, withState } from 'recompose'
+import { compose, lifecycle } from 'recompose'
+import { connect } from 'react-redux'
+
+import { selectPlayerPosition } from 'app/redux/selectors'
+import { UPDATE_PLAYER_POSITION } from 'app/redux/actions'
 
 const ARROW_LEFT = 37
 const ARROW_UP = 38
@@ -6,7 +10,13 @@ const ARROW_RIGHT = 39
 const ARROW_DOWN = 40
 
 const enhance = compose(
-  withState('playerPosition', 'setPlayerPosition', { column: 2, row: 2 }),
+  connect(
+    state => ({ playerPosition: selectPlayerPosition(state) }),
+    dispatch => ({
+      setPlayerPosition: position =>
+        dispatch({ type: UPDATE_PLAYER_POSITION, position })
+    })
+  ),
   lifecycle({
     componentDidMount: function() {
       window.addEventListener('keyup', event => {
